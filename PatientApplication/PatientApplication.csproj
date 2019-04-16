@@ -215,6 +215,8 @@
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="Content\darkly.bootstrap" />
     <Content Include="Content\cyborg.bootstrap" />
+    <Content Include="Content\flatly.bootstrap" />
+    <Content Include="Content\pulse.bootstrap" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -277,6 +279,7 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Shared\_NavBar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

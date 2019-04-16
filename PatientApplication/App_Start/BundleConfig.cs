@@ -23,7 +23,7 @@ namespace PatientApplication
                       "~/Scripts/umd/bootstrap.js"));
             
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/cyborg.bootstrap.css",
+                      "~/Content/pulse.bootstrap.css",
                       "~/Content/site.css"));
         }
     }
