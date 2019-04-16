@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - C# ASP.NET MVC Application</title>
-    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/bootstrap-pulse.css")
     @Styles.Render("~/Content/bootstrap.css")
     
     @Scripts.Render("~/bundles/modernizr")
@@ -22,8 +22,8 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/Scripts/umd/bootstrap.js")
-    @Scripts.Render("~/Scripts/umd/jquery-3.3.1.js")
+    @Scripts.Render("~/Scripts/umd/bootstrap.min.js")
+    @Scripts.Render("~/Scripts/umd/jquery-3.3.1.min.js")
     @RenderSection("scripts", required: false)
 </body>
 </html>

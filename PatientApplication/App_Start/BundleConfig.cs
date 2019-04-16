@@ -20,10 +20,11 @@ namespace PatientApplication
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/umd/bootstrap.js"));
+                      "~/Scripts/umd/bootstrap.js",
+                      "~/Scripts/respond.js"));
             
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/pulse.bootstrap.css",
+                      "~/Content/bootstrap-pulse.css",
                       "~/Content/site.css"));
         }
     }
