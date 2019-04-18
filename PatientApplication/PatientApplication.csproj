@@ -179,11 +179,30 @@
     <Compile Include="Migrations\201904170349072_InitialModel.Designer.cs">
       <DependentUpon>201904170349072_InitialModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904180345430_AddPatient.cs" />
+    <Compile Include="Migrations\201904180345430_AddPatient.Designer.cs">
+      <DependentUpon>201904180345430_AddPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904180347493_AddMedication.cs" />
+    <Compile Include="Migrations\201904180347493_AddMedication.Designer.cs">
+      <DependentUpon>201904180347493_AddMedication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904180349361_AddPharmacy.cs" />
+    <Compile Include="Migrations\201904180349361_AddPharmacy.Designer.cs">
+      <DependentUpon>201904180349361_AddPharmacy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904180352093_AddPhysician.cs" />
+    <Compile Include="Migrations\201904180352093_AddPhysician.Designer.cs">
+      <DependentUpon>201904180352093_AddPhysician.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Medication.cs" />
     <Compile Include="Models\Patient.cs" />
+    <Compile Include="Models\Pharmacy.cs" />
+    <Compile Include="Models\Physician.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -304,6 +323,18 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201904170349072_InitialModel.resx">
       <DependentUpon>201904170349072_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904180345430_AddPatient.resx">
+      <DependentUpon>201904180345430_AddPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904180347493_AddMedication.resx">
+      <DependentUpon>201904180347493_AddMedication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904180349361_AddPharmacy.resx">
+      <DependentUpon>201904180349361_AddPharmacy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904180352093_AddPhysician.resx">
+      <DependentUpon>201904180352093_AddPhysician.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
