@@ -10,6 +10,8 @@ namespace PatientApplication.Models
     {
         public int Id { get; set; }
 
+        public int PatientId { get; set; }
+
         [Required]
         [StringLength(255)]
         public string MedicationName { get; set; }
@@ -17,6 +19,10 @@ namespace PatientApplication.Models
         public string MedicationStrength { get; set; }
 
         public string MedicationDosage { get; set; }
+
+        //Navigation Property for Many-To-One relationship with Patient
+        public virtual Patient Patient { get; set; }
+
 
     }
 }

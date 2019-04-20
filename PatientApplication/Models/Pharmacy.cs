@@ -8,6 +8,11 @@ namespace PatientApplication.Models
 {
     public class Pharmacy
     {
+        //Constructor
+        public Pharmacy()
+        {
+            //this.Patients = new HashSet<Patient>();
+        }
         public int Id { get; set; }
 
         [Required]
@@ -17,5 +22,8 @@ namespace PatientApplication.Models
         public string PharmacyPhone { get; set; }
 
         public string PharmacyAddress { get; set; }
+
+        //Navigation property for many-to-many relationship with Patient
+       // public virtual ICollection<Patient> Patients { get; set; }
     }
 }
