@@ -11,7 +11,7 @@ namespace PatientApplication.Models
         //Call constructor
         public Patient()
         {
-           // this.Pharmacies = new HashSet<Pharmacy>();
+            this.Pharmacies = new HashSet<Pharmacy>();
            // this.Physcians = new HashSet<Physician>();
         }
         public int Id { get; set; }
@@ -28,7 +28,7 @@ namespace PatientApplication.Models
         public string Address { get; set; }
 
         //Navigation property for Many-To-Many relationship with Pharmacy
-       // public virtual ICollection<Pharmacy> Pharmacies { get; set; }
+        public virtual ICollection<Pharmacy> Pharmacies { get; set; }
 
         //Navigation property for Many-To-Many relationship with Physician
         //public virtual ICollection<Physician> Physcians { get; set; }
