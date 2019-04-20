@@ -12,7 +12,7 @@ namespace PatientApplication.Models
         public Patient()
         {
             this.Pharmacies = new HashSet<Pharmacy>();
-           // this.Physcians = new HashSet<Physician>();
+            this.Physcians = new HashSet<Physician>();
         }
         public int Id { get; set; }
 
@@ -31,7 +31,7 @@ namespace PatientApplication.Models
         public virtual ICollection<Pharmacy> Pharmacies { get; set; }
 
         //Navigation property for Many-To-Many relationship with Physician
-        //public virtual ICollection<Physician> Physcians { get; set; }
+       public virtual ICollection<Physician> Physcians { get; set; }
 
         //Navigation property for One-To-Many relationship with Medication
         public virtual ICollection<Medication> Medications { get; set; }

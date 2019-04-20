@@ -11,7 +11,7 @@ namespace PatientApplication.Models
         //Constructor
         public Physician()
         {
-            //this.Patients = new HashSet<Patient>();
+            this.Patients = new HashSet<Patient>();
         }
         public int Id { get; set; }
 
@@ -28,7 +28,7 @@ namespace PatientApplication.Models
         public string PhysicianSpecialty { get; set; }
 
         //Navigation Property for many-to-many relationship with Patient
-        //public virtual ICollection<Patient> Patients { get; set; }
+        public virtual ICollection<Patient> Patients { get; set; }
 
     }
 }

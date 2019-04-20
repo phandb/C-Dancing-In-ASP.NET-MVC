@@ -203,6 +203,10 @@
     <Compile Include="Migrations\201904201400391_AddPharmcyToPatient.Designer.cs">
       <DependentUpon>201904201400391_AddPharmcyToPatient.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904201410586_AddPhysicianToPatient.cs" />
+    <Compile Include="Migrations\201904201410586_AddPhysicianToPatient.Designer.cs">
+      <DependentUpon>201904201410586_AddPhysicianToPatient.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -349,6 +353,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904201400391_AddPharmcyToPatient.resx">
       <DependentUpon>201904201400391_AddPharmcyToPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904201410586_AddPhysicianToPatient.resx">
+      <DependentUpon>201904201410586_AddPhysicianToPatient.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
