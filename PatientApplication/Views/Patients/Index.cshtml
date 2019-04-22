@@ -1,0 +1,53 @@
+﻿@model IEnumerable<PatientApplication.Models.Patient>
+
+@{
+    ViewBag.Title = "Patient";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center">Patient List</h2>
+
+<p>
+    @Html.ActionLink("Add New Patient", "NewPatient", "Patients", htmlAttributes: new { @class = "btn btn-outline-primary" })
+
+</p>
+
+@if (!Model.Any())
+{
+    <p>We don't have any patient yet!</p>
+}
+else
+{
+    <table class="table table-bordered table-hover mt-5">
+        <thead>
+            <tr>
+                <th class="text-center">
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+
+                <th class="text-center">Action</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+
+                    <td class="text-center">
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }, htmlAttributes:new { @class = "btn btn-outline-info" }) 
+                        @Html.ActionLink("Details", "Details", new { id = item.Id }, htmlAttributes:new { @class = "btn btn-outline-primary" }) 
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id }, htmlAttributes:new { @class = "btn btn-outline-danger" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+
+    </table>
+
+}
+

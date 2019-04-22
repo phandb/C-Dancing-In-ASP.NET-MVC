@@ -13,11 +13,16 @@
                     @Html.ActionLink("Home", "Index", "Home", routeValues: null, htmlAttributes: new { @class = "nav-link" })
                 </li>
                 <li class="nav-item">
-                    @Html.ActionLink("About", "About", "Home", routeValues: null, htmlAttributes: new { @class = "nav-link" })
+
+                    @Html.ActionLink("Patient", "Index", "Patients", routeValues: null, htmlAttributes: new { @class = "nav-link" })
                 </li>
                 <li class="nav-item">
-                    @Html.ActionLink("Contact", "Contact", "Home", routeValues: null, htmlAttributes: new { @class = "nav-link" })
+                    @Html.ActionLink("Pharmacy", "Index", "Pharmacies", routeValues: null, htmlAttributes: new { @class = "nav-link" })
                 </li>
+                <li class="nav-item">
+                    @Html.ActionLink("Physician", "Index", "Physicians", routeValues: null, htmlAttributes: new { @class = "nav-link" })
+                </li>
+
 
             </ul>
 
