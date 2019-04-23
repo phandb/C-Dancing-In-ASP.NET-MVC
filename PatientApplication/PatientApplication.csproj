@@ -208,6 +208,18 @@
     <Compile Include="Migrations\201904201410586_AddPhysicianToPatient.Designer.cs">
       <DependentUpon>201904201410586_AddPhysicianToPatient.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904230205287_PopulateMedications.cs" />
+    <Compile Include="Migrations\201904230205287_PopulateMedications.Designer.cs">
+      <DependentUpon>201904230205287_PopulateMedications.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904230301440_PopulatePharmacies.cs" />
+    <Compile Include="Migrations\201904230301440_PopulatePharmacies.Designer.cs">
+      <DependentUpon>201904230301440_PopulatePharmacies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904230307549_PopulatePhysicians.cs" />
+    <Compile Include="Migrations\201904230307549_PopulatePhysicians.Designer.cs">
+      <DependentUpon>201904230307549_PopulatePhysicians.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -363,6 +375,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904201410586_AddPhysicianToPatient.resx">
       <DependentUpon>201904201410586_AddPhysicianToPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904230205287_PopulateMedications.resx">
+      <DependentUpon>201904230205287_PopulateMedications.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904230301440_PopulatePharmacies.resx">
+      <DependentUpon>201904230301440_PopulatePharmacies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904230307549_PopulatePhysicians.resx">
+      <DependentUpon>201904230307549_PopulatePhysicians.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
