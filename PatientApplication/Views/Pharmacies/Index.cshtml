@@ -1,0 +1,58 @@
+﻿@model IEnumerable<PatientApplication.Models.Pharmacy>
+@{
+    ViewBag.Title = "Pharmacy";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center">Pharmacy List</h2>
+
+<p>
+    @Html.ActionLink("Add New Pharmacy", "NewPharmacy", "Pharmacies", htmlAttributes: new { @class = "btn btn-outline-primary" })
+
+</p>
+
+@if (!Model.Any())
+{
+    <p>We don't have any pharmacy yet!</p>
+}
+else
+{
+    <table class="table table-bordered table-dark mt-5">
+        <thead>
+
+            <tr>
+                <th>#</th>
+                <th class="text-center">
+                    @Html.DisplayNameFor(model => model.PharmacyName)
+                </th>
+
+                <th class="text-center">Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @{ int counter = 1; }
+            @foreach (var item in Model)
+            {
+
+                <tr>
+                    <td>@counter</td>
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => item.PharmacyName)
+                    </td>
+
+                    <td class="text-center">
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-outline-info" })
+                        @Html.ActionLink("Details", "Details", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-outline-success" })
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-outline-danger" })
+                    </td>
+
+                </tr>
+                counter++;
+            }
+        </tbody>
+
+
+    </table>
+
+}

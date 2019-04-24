@@ -1,0 +1,49 @@
+﻿@model PatientApplication.ViewModels.PhysicianFormViewModel
+@{
+    ViewBag.Title = "New Physician";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>New Physician</h2>
+
+@using (Html.BeginForm("Save", "Physicians"))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+       
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Physician.PhysicianName, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.TextBoxFor(model => model.Physician.PhysicianName, htmlAttributes: new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Physician.PhysicianSpecialty, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.TextBoxFor(model => model.Physician.PhysicianSpecialty, htmlAttributes: new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Physician.PhysicianPhone, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.TextBoxFor(model => model.Physician.PhysicianPhone,  htmlAttributes: new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Physician.PhysicianAddress, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.TextBoxFor(model => model.Physician.PhysicianAddress, htmlAttributes: new { @class = "form-control" })
+        </div>
+        @Html.HiddenFor(model => model.Physician.Id)
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+

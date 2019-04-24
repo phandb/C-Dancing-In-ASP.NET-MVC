@@ -342,12 +342,24 @@
     <Content Include="Views\Patients\Details.cshtml" />
     <Content Include="Views\Patients\Edit.cshtml" />
     <Content Include="Views\Patients\Index.cshtml" />
+    <Content Include="Views\Pharmacies\Delete.cshtml" />
+    <Content Include="Views\Pharmacies\Details.cshtml" />
+    <Content Include="Views\Pharmacies\Edit.cshtml" />
+    <Content Include="Views\Pharmacies\Index.cshtml" />
+    <Content Include="Views\Pharmacies\PharmacyForm.cshtml" />
+    <Content Include="Views\Physicians\Delete.cshtml" />
+    <Content Include="Views\Physicians\Details.cshtml" />
+    <Content Include="Views\Physicians\Edit.cshtml" />
+    <Content Include="Views\Physicians\Index.cshtml" />
+    <Content Include="Views\Physicians\PhysicianForm.cshtml" />
+    <Content Include="Views\Medications\Delete.cshtml" />
+    <Content Include="Views\Medications\Index.cshtml" />
+    <Content Include="Views\Medications\Details.cshtml" />
+    <Content Include="Views\Medications\Edit.cshtml" />
+    <Content Include="Views\Medications\MedicationForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Medications\" />
-    <Folder Include="Views\Pharmacies\" />
-    <Folder Include="Views\Physicians\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

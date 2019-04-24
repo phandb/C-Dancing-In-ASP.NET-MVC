@@ -1,0 +1,43 @@
+﻿@model PatientApplication.Models.Pharmacy
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+<div>
+    <h4>Pharmacy</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PharmacyName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PharmacyName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PharmacyAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PharmacyAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PharmacyPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PharmacyPhone)
+        </dd>
+
+        
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+

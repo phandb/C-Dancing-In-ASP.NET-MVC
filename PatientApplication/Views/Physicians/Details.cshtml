@@ -1,0 +1,50 @@
+﻿@model PatientApplication.Models.Physician
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <h4>Physician</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PhysicianName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhysicianName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhysicianSpecialty)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhysicianSpecialty)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhysicianPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhysicianPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhysicianAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhysicianAddress)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+
