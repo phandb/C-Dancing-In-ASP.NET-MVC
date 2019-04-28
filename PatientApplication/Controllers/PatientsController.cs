@@ -37,7 +37,11 @@ namespace PatientApplication.Controllers
         //GET Patients/Details/{id}
         public ActionResult Details(int id)
         {
-            var patient = _context.Patients.SingleOrDefault(p => p.Id == id);
+            var patient = _context.Patients
+                            .Include(p=>p.Medications)
+                            .Include(p=>p.Pharmacies)
+                            .Include(p=>p.Physcians)
+                            .SingleOrDefault(p => p.Id == id);
 
             if (patient == null)
                 return HttpNotFound();

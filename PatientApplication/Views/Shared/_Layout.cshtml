@@ -9,6 +9,25 @@
     @Scripts.Render("~/bundles/modernizr")
 
 
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/Scripts/umd/bootstrap.min.js")
+    @Scripts.Render("~/Scripts/umd/jquery-3.3.1.min.js")
+    @RenderSection("scripts", required: false)
+
+    
+
+    <script type="text/javascript">
+            if (typeof jQuery == 'undefined') {
+                var e = document.createElement('script');
+                e.src = '@Url.Content("~/Scripts/jquery-3.3.1.js")';
+                e.type = 'text/javascript';
+                document.getElementsByTagName("head")[0].appendChild(e);
+
+            }
+    </script>
+
+   
 </head>
 <body class="pt-0">
     @Html.Partial("_NavBar")
@@ -20,10 +39,6 @@
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/Scripts/umd/bootstrap.min.js")
-    @Scripts.Render("~/Scripts/umd/jquery-3.3.1.min.js")
-    @RenderSection("scripts", required: false)
+    
 </body>
 </html>
