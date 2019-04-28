@@ -239,6 +239,10 @@
     <Compile Include="ViewModels\PhysicianFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\aspnet-PatientApplication-20190415125741.mdf" />
+    <Content Include="App_Data\aspnet-PatientApplication-20190415125741_log.ldf">
+      <DependentUpon>aspnet-PatientApplication-20190415125741.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -358,9 +362,7 @@
     <Content Include="Views\Medications\Edit.cshtml" />
     <Content Include="Views\Medications\MedicationForm.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
