@@ -1,5 +1,43 @@
-﻿@{
+﻿@model PatientApplication.ViewModels.MedicationFormViewModel
+
+
+@{
+    ViewBag.Title = "Medication";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<h2> New Medication</h2>
+@using (Html.BeginForm("Save", "Medications"))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class="text-danger"})
+        <div class="form-group">
+            @Html.LabelFor(m => m.Medication.MedicationName, htmlAttributes: new { @class="control-label"})
+            @Html.TextBoxFor(m => m.Medication.MedicationName, htmlAttributes: new { @class="form-control"})
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Medication.MedicationStrength, htmlAttributes: new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.Medication.MedicationStrength, htmlAttributes: new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Medication.MedicationDosage, htmlAttributes: new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.Medication.MedicationDosage, htmlAttributes: new { @class = "form-control" })
+        </div>
 
+        @Html.HiddenFor(m=>m.Medication.Id)
+
+        <div class="form-group">
+            <div class="col-md-offset-5 ">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </div>
+
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to the patient", "Details", "Patients", new { id = Model.Patient.Id }, null)
+</div>

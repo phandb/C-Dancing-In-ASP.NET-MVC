@@ -91,7 +91,7 @@
 
 
         <p>
-            @Html.ActionLink("Add Medication For Patient", "AddMedicationToPatient", "Patients", htmlAttributes: new { @class = "btn btn-outline-primary mb-3 mt-3" })
+            @Html.ActionLink("Add Medication For Patient", "Create", "Medications", new {patientId = Model.Id},  htmlAttributes: new { @class = "btn btn-outline-primary mb-3 mt-3" })
         </p>
         <table class="table table-striped table-bordered table-sm">
             <thead class="thead-light text-center">

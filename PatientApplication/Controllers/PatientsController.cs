@@ -103,5 +103,8 @@ namespace PatientApplication.Controllers
             //redirect to index in the PatientsController
             return RedirectToAction("Index", "Patients");
         }
+
+        
+
     }
 }

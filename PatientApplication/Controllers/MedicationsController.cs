@@ -61,12 +61,21 @@ namespace PatientApplication.Controllers
             return View("MedicationForm", viewModel);
         }
 
-        public ActionResult NewMedication()
+        //This method add medication to patient
+        
+
+        public ActionResult Create(int patientId)
         {
-            var viewModel = new MedicationFormViewModel { };
+            var thePatient = _context.Patients.SingleOrDefault(p => p.Id == patientId);
+            if (thePatient == null)
+                return HttpNotFound();
+
+            var viewModel = new MedicationFormViewModel
+            {
+                Patient = thePatient           
+            };
 
             return View("MedicationForm", viewModel);
-
         }
 
         //Read and save data from new medication form
@@ -98,6 +107,8 @@ namespace PatientApplication.Controllers
             //redirect to index in the PatientsController
             return RedirectToAction("Index", "Medications");
         }
+
+        
 
     }
 }

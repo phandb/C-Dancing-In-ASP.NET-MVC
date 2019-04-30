@@ -8,6 +8,7 @@ namespace PatientApplication.ViewModels
 {
     public class MedicationFormViewModel
     {
+        public Patient Patient { get; set; }
         public Medication Medication { get; set; }
     }
 }
