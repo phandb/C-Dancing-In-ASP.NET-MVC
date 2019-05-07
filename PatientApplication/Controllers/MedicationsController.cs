@@ -80,14 +80,21 @@ namespace PatientApplication.Controllers
 
         //Read and save data from new medication form
         [HttpPost]
-        public ActionResult Save(Medication medication)
+        public ActionResult Save(Medication medication, int patientId)
         {
+            
+
             //check if new medication
             if (medication.Id == 0)
             {
+                var thePatient = _context.Patients.SingleOrDefault(p => p.Id == patientId);
+                if (thePatient == null)
+                    return HttpNotFound();
+               
                 //add new medication
-                _context.Medications.Add(medication);
+              thePatient.Medications.Add(medication);
 
+              
             }
             //otherwise update the medication
             else
@@ -98,6 +105,8 @@ namespace PatientApplication.Controllers
                 medicationInDb.MedicationName = medication.MedicationName;
                 medicationInDb.MedicationStrength = medication.MedicationStrength;
                 medicationInDb.MedicationDosage = medication.MedicationDosage;
+                medicationInDb.PatientId = medication.PatientId;
+
 
             }
 
@@ -105,10 +114,10 @@ namespace PatientApplication.Controllers
             _context.SaveChanges();
 
             //redirect to index in the PatientsController
-            return RedirectToAction("Index", "Medications");
+            return RedirectToAction("Details", "Patients", new { id = patientId } );
         }
 
         
-
+        
     }
 }

@@ -24,6 +24,7 @@ namespace PatientApplication.Models
         public DbSet<Medication> Medications { get; set; }
         public DbSet<Pharmacy> Pharmacies { get; set; }
         public DbSet<Physician> Physicians { get; set; }
+        
 
        public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

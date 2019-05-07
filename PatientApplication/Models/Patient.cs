@@ -11,6 +11,7 @@ namespace PatientApplication.Models
         //Call constructor
         public Patient()
         {
+            this.Medications = new HashSet<Medication>();
             this.Pharmacies = new HashSet<Pharmacy>();
             this.Physcians = new HashSet<Physician>();
         }
@@ -23,6 +24,8 @@ namespace PatientApplication.Models
         public string Gender { get; set; }
 
         [Display(Name = "Date of Birth")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:d-MMM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? Birthdate { get; set; }
 
         public string Address { get; set; }
@@ -31,7 +34,7 @@ namespace PatientApplication.Models
         public virtual ICollection<Pharmacy> Pharmacies { get; set; }
 
         //Navigation property for Many-To-Many relationship with Physician
-       public virtual ICollection<Physician> Physcians { get; set; }
+        public virtual ICollection<Physician> Physcians { get; set; }
 
         //Navigation property for One-To-Many relationship with Medication
         public virtual ICollection<Medication> Medications { get; set; }
