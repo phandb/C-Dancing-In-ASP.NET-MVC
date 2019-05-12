@@ -34,9 +34,9 @@ namespace PatientApplication.Controllers
         }
 
         //GET Pharmacies/Details/{id}
-        public ActionResult Details(int id)
+        public ActionResult Details(int pharmacyId)
         {
-            var pharmacy = _context.Pharmacies.SingleOrDefault(p => p.Id == id);
+            var pharmacy = _context.Pharmacies.SingleOrDefault(p => p.Id == pharmacyId);
 
             if (pharmacy == null)
                 return HttpNotFound();
@@ -46,9 +46,9 @@ namespace PatientApplication.Controllers
 
         }
 
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int pharmacyId)
         {
-            var pharmacy = _context.Pharmacies.SingleOrDefault(p => p.Id == id);
+            var pharmacy = _context.Pharmacies.SingleOrDefault(p => p.Id == pharmacyId);
 
             //check if pharmacy exist
             if (pharmacy == null)
@@ -96,6 +96,36 @@ namespace PatientApplication.Controllers
             _context.SaveChanges();
 
             //redirect to index
+            return RedirectToAction("Index", "Pharmacies");
+        }
+
+        //GET Pharmacies/Delete/{pharmacyId}
+        public ActionResult Delete(int pharmacyId)
+        {
+            //get pharmacy via id
+            Pharmacy pharmacy = _context.Pharmacies.Single(p => p.Id == pharmacyId);
+
+            //Check if exist
+
+            if (pharmacy == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(pharmacy);
+        }
+
+        //POST Pharmacies/Delete/{pharmacyId)
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int pharmacyId)
+        {
+            Pharmacy pharmacy = _context.Pharmacies.SingleOrDefault(ph => ph.Id == pharmacyId);
+
+            _context.Pharmacies.Remove(pharmacy);
+
+            _context.SaveChanges();
+
             return RedirectToAction("Index", "Pharmacies");
         }
     }

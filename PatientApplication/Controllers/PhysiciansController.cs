@@ -31,9 +31,9 @@ namespace PatientApplication.Controllers
         }
 
         //GET Physicians/Details/{id}
-        public ActionResult Details(int id)
+        public ActionResult Details(int physicianId)
         {
-            var physician = _context.Physicians.SingleOrDefault(p => p.Id == id);
+            var physician = _context.Physicians.SingleOrDefault(p => p.Id == physicianId);
 
             if (physician == null)
                 return HttpNotFound();
@@ -43,9 +43,9 @@ namespace PatientApplication.Controllers
 
         }
 
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int physicianId)
         {
-            var physician = _context.Physicians.SingleOrDefault(p => p.Id == id);
+            var physician = _context.Physicians.SingleOrDefault(p => p.Id == physicianId);
 
             //check if Physician exist
             if (physician == null)
@@ -94,6 +94,37 @@ namespace PatientApplication.Controllers
             _context.SaveChanges();
 
             //redirect to index
+            return RedirectToAction("Index", "Physicians");
+        }
+
+        //GET Physicians/Delete/{id}
+        public ActionResult Delete(int physicianId)
+        {
+            //retrieve the physician
+            Physician physician = _context.Physicians.SingleOrDefault(phy => phy.Id == physicianId);
+
+            //check if exist
+            if (physician == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(physician);
+
+
+        }
+
+        //Post :Physicians/Delete/{id}
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int physicianId)
+        {
+            //retrive physician
+            Physician physician = _context.Physicians.SingleOrDefault(phy => phy.Id == physicianId);
+
+            _context.Physicians.Remove(physician);
+            _context.SaveChanges();
+
             return RedirectToAction("Index", "Physicians");
         }
     }

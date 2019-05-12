@@ -42,9 +42,9 @@ else
                     </td>
 
                     <td class="text-center">
-                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-outline-info" })
-                        @Html.ActionLink("Details", "Details", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-outline-success" })
-                        @Html.ActionLink("Delete", "Delete", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-outline-danger" })
+                        @Html.ActionLink("Edit", "Edit", new { physicianId = item.Id }, htmlAttributes: new { @class = "btn btn-outline-info" })
+                        @Html.ActionLink("Details", "Details", new { physicianId = item.Id }, htmlAttributes: new { @class = "btn btn-outline-success" })
+                        @Html.ActionLink("Delete", "Delete", "Physicians",  new { physicianId = item.Id }, htmlAttributes: new { @class = "btn btn-outline-danger" })
                     </td>
 
                 </tr>
