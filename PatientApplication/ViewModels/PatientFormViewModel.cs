@@ -9,5 +9,14 @@ namespace PatientApplication.ViewModels
     public class PatientFormViewModel
     {
         public Patient Patient { get; set; }
+
+       /* public string Title
+        {
+            get
+            {
+                return Id != 0 ? "Edit Patient" : "New Patient";
+            }
+
+        }*/
     }
 }

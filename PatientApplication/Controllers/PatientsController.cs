@@ -35,13 +35,13 @@ namespace PatientApplication.Controllers
         }
         
         //GET Patients/Details/{id}
-        public ActionResult Details(int id)
+        public ActionResult Details(int patientId)
         {
             var patient = _context.Patients
                             .Include(p=>p.Medications)
                             .Include(p=>p.Pharmacies)
                             .Include(p=>p.Physcians)
-                            .SingleOrDefault(p => p.Id == id);
+                            .SingleOrDefault(p => p.Id == patientId);
 
             if (patient == null)
                 return HttpNotFound();
@@ -50,9 +50,9 @@ namespace PatientApplication.Controllers
                 
         }
 
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int patientId)
         {
-            var patient = _context.Patients.SingleOrDefault(p => p.Id == id);
+            var patient = _context.Patients.SingleOrDefault(p => p.Id == patientId);
 
             //check if patient exist
             if (patient == null)
@@ -103,6 +103,36 @@ namespace PatientApplication.Controllers
             //redirect to index in the PatientsController
             return RedirectToAction("Index", "Patients");
         }
+
+        //GET Patients/Delete/{id}
+        
+        public ActionResult Delete(int patientId)
+        {
+            Patient patient = _context.Patients.Find(patientId);
+
+            //check if patient exist
+            if (patient == null)
+                return HttpNotFound();
+
+            
+
+            return View(patient);
+        }
+
+        //POST: Patients/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]        
+        public ActionResult DeleteConfirmed(int patientId)
+        {
+            Patient patient = _context.Patients.Find(patientId);
+            _context.Patients.Remove(patient);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Patients");
+
+        }
+
+
 
         
 
