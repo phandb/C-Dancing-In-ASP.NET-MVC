@@ -6,8 +6,9 @@ using System.Web;
 
 namespace PatientApplication.ViewModels
 {
-    public class PhysicianFormViewModel
+    public class MedicationViewModel
     {
-        public Physician Physician { get; set; }
+        public Patient Patient { get; set; }
+        public Medication Medication { get; set; }
     }
 }

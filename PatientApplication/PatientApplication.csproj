@@ -233,10 +233,12 @@
     <Compile Include="Models\Physician.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModels\MedicationFormViewModel.cs" />
-    <Compile Include="ViewModels\PatientFormViewModel.cs" />
-    <Compile Include="ViewModels\PharmacyFormViewModel.cs" />
-    <Compile Include="ViewModels\PhysicianFormViewModel.cs" />
+    <Compile Include="ViewModels\AssignedPharmacyData.cs" />
+    <Compile Include="ViewModels\AssignedPhysicianData.cs" />
+    <Compile Include="ViewModels\MedicationViewModel.cs" />
+    <Compile Include="ViewModels\PatientViewModel.cs" />
+    <Compile Include="ViewModels\PharmacyViewModel.cs" />
+    <Compile Include="ViewModels\PhysicianViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\aspnet-PatientApplication-20190415125741.mdf" />
@@ -361,6 +363,7 @@
     <Content Include="Views\Medications\Details.cshtml" />
     <Content Include="Views\Medications\Edit.cshtml" />
     <Content Include="Views\Medications\MedicationForm.cshtml" />
+    <Content Include="Views\Patients\PhysicianList.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -58,7 +58,7 @@ namespace PatientApplication.Controllers
             if (patient == null)
                 return HttpNotFound();
 
-            var viewModel = new PatientFormViewModel
+            var viewModel = new PatientViewModel
             {
                 Patient = patient
 
@@ -69,7 +69,7 @@ namespace PatientApplication.Controllers
 
         public ActionResult NewPatient()
         {
-            var viewModel = new PatientFormViewModel { };
+            var viewModel = new PatientViewModel { };
 
             return View("PatientForm", viewModel);
         }
@@ -132,6 +132,25 @@ namespace PatientApplication.Controllers
 
         }
 
+        public ActionResult GetPhysicianList(int patientId)
+        {
+            var physicians = _context.Physicians.ToList();
+            Patient thePatient = _context.Patients.Find(patientId);
+
+            if (thePatient == null)
+            {
+                return HttpNotFound();
+            }
+
+            var viewModel = new PatientViewModel
+            {
+                Patient = thePatient,
+                Physicians = physicians
+                
+            };
+
+            return View("PhysicianList", viewModel );
+        }
 
 
         

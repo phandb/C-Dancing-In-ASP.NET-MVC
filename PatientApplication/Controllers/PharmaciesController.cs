@@ -54,7 +54,7 @@ namespace PatientApplication.Controllers
             if (pharmacy == null)
                 return HttpNotFound();
 
-            var viewModel = new PharmacyFormViewModel
+            var viewModel = new PharmacyViewModel
             {
                 Pharmacy = pharmacy
             };
@@ -65,7 +65,7 @@ namespace PatientApplication.Controllers
 
         public ActionResult NewPharmacy()
         {
-            var viewModel = new PharmacyFormViewModel { };
+            var viewModel = new PharmacyViewModel { };
 
             return View("PharmacyForm", viewModel);
         }

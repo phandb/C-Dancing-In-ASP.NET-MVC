@@ -45,17 +45,19 @@ namespace PatientApplication.Controllers
 
         }
 
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int patientId, int medicationId)
         {
-            var medication = _context.Medications.SingleOrDefault(m => m.Id == id);
+            var medication = _context.Medications.SingleOrDefault(m => m.Id == medicationId);
+            var patient = _context.Patients.SingleOrDefault(p => p.Id == patientId);
 
             //check if medicaion exists
             if (medication == null)
                 return HttpNotFound();
 
-            var viewModel = new MedicationFormViewModel
+            var viewModel = new MedicationViewModel
             {
-                Medication = medication
+                Medication = medication,
+                Patient = patient
             };
 
             return View("MedicationForm", viewModel);
@@ -70,7 +72,7 @@ namespace PatientApplication.Controllers
             if (thePatient == null)
                 return HttpNotFound();
 
-            var viewModel = new MedicationFormViewModel
+            var viewModel = new MedicationViewModel
             {
                 Patient = thePatient           
             };
@@ -83,13 +85,16 @@ namespace PatientApplication.Controllers
         public ActionResult Save(Medication medication, int patientId)
         {
             
+           // var medication = _context.Medications.SingleOrDefault(m => m.Id == Medication.Id);
+
+            var thePatient = _context.Patients.SingleOrDefault(p => p.Id == patientId);
+            if (thePatient == null)
+                return HttpNotFound();
 
             //check if new medication
             if (medication.Id == 0)
             {
-                var thePatient = _context.Patients.SingleOrDefault(p => p.Id == patientId);
-                if (thePatient == null)
-                    return HttpNotFound();
+               
                
                 //add new medication
               thePatient.Medications.Add(medication);
@@ -99,13 +104,15 @@ namespace PatientApplication.Controllers
             //otherwise update the medication
             else
             {
+                
+
                 var medicationInDb = _context.Medications.Single(m => m.Id == medication.Id);
 
                 //Mapper.Map(medication, medicationInDb);
                 medicationInDb.MedicationName = medication.MedicationName;
                 medicationInDb.MedicationStrength = medication.MedicationStrength;
                 medicationInDb.MedicationDosage = medication.MedicationDosage;
-                medicationInDb.PatientId = medication.PatientId;
+               // medicationInDb.PatientId = medication.PatientId;
 
 
             }
@@ -114,10 +121,27 @@ namespace PatientApplication.Controllers
             _context.SaveChanges();
 
             //redirect to index in the PatientsController
-            return RedirectToAction("Details", "Patients", new { id = patientId } );
+            return RedirectToAction("Details", "Patients", new { patientId = patientId });
         }
 
-        
-        
+        //GET Medications/Delete/{medicationId, patientId}
+        public ActionResult Delete(int medicationId, int patientId)
+        {
+            Medication medication = _context.Medications.Find(medicationId);
+
+            //check medication available
+            if (medication == null)
+            {
+                return HttpNotFound();
+            }
+
+            _context.Medications.Remove(medication);
+            _context.SaveChanges();
+
+
+            return RedirectToAction("Details", "Patients", new { patientId = patientId });
+        }
+         
+
     }
 }

@@ -1,4 +1,4 @@
-﻿@model PatientApplication.ViewModels.PharmacyFormViewModel
+﻿@model PatientApplication.ViewModels.PharmacyViewModel
 @{
     ViewBag.Title = "New Pharmacy";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -36,3 +36,7 @@
 
 </div>
 }
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

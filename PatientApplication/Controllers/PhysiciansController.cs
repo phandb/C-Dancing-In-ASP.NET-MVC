@@ -51,7 +51,7 @@ namespace PatientApplication.Controllers
             if (physician == null)
                 return HttpNotFound();
 
-            var viewModel = new PhysicianFormViewModel
+            var viewModel = new PhysicianViewModel
             {
                 Physician = physician
             };
@@ -62,7 +62,7 @@ namespace PatientApplication.Controllers
 
         public ActionResult NewPhysician()
         {
-            var viewModel = new PhysicianFormViewModel { };
+            var viewModel = new PhysicianViewModel { };
 
             return View("PhysicianForm", viewModel);
         }
@@ -127,5 +127,8 @@ namespace PatientApplication.Controllers
 
             return RedirectToAction("Index", "Physicians");
         }
+
+        
+
     }
 }
