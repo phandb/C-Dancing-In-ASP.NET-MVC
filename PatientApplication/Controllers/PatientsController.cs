@@ -134,21 +134,23 @@ namespace PatientApplication.Controllers
 
         public ActionResult GetPhysicianList(int patientId)
         {
-            var physicians = _context.Physicians.ToList();
+            List<Physician> physicians = new List<Physician>();
+            physicians = _context.Physicians.ToList();
+
             Patient thePatient = _context.Patients.Find(patientId);
 
             if (thePatient == null)
             {
                 return HttpNotFound();
             }
-
-            var viewModel = new PatientViewModel
+            
+            var viewModel = new AssignedPhysicianData
             {
                 Patient = thePatient,
                 Physicians = physicians
                 
             };
-
+            
             return View("PhysicianList", viewModel );
         }
 

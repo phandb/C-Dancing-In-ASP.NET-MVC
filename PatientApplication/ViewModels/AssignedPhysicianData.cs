@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using PatientApplication.Models;
 
 namespace PatientApplication.ViewModels
 {
     public class AssignedPhysicianData
     {
-        public int PhysicanID { get; set; }
-        public string PhysicianName { get; set; }
-        public bool IsAssigned { get; set; }
+       
+        public Patient Patient { get; set; }
+
+
+        public List<Physician> Physicians { get; set; }
     }
 }

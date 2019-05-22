@@ -1,5 +1,5 @@
 ﻿
-@model PatientApplication.ViewModels.PatientViewModel
+@model PatientApplication.ViewModels.AssignedPhysicianData
 
 @{
     ViewBag.Title = "Physician";
@@ -14,43 +14,35 @@
 </p>
 
 
-
-
     <table class="table table-bordered table-dark mt-5">
         <thead>
 
             <tr>
                 <th>#</th>
-                <th class="text-center">Action</th>
-                <th class="text-center">@Html.DisplayNameFor(Physicians.PhysicianName)</th>
+                <th class="text-center">
+                   @*@Html.DisplayNameFor(model => model.Physicians.PhysicianName)*@ 
+                </th>
 
-                
+                <th class="text-center">Action</th>
             </tr>
         </thead>
 
         <tbody>
             @{ int counter = 1; }
-            @foreach (var physician in Model.Physicians)
-                
+            @foreach (var physician in Physicians )
             {
 
                 <tr>
                     <td>@counter</td>
-                    
                     <td class="text-center">
-                        @Html.DisplayFor(physician=>physician.Physicians.PhysicianName)
-                    </td>
-                    <td class="text-center">
-                        @Html.DisplayFor(physician => Physicians.PhysicianSpecialty)
-                    </td>
-                    <td class="text-center">
-                        @Html.DisplayFor(physician => Physicians.PhysicianPhone)
-                    </td>
-                    <td class="text-center">
-                        @Html.DisplayFor(physician => Physicians.PhysicianAddress)
+                        @Html.DisplayFor(physician => physician.PhysicianName)
                     </td>
 
-                    
+                    <td class="text-center">
+                        @Html.ActionLink("Edit", "Edit", new { physicianId = physician.Physicians.Id }, htmlAttributes: new { @class = "btn btn-outline-info" })
+                        @Html.ActionLink("Details", "Details", new { physicianId = physician.Physicians.Id }, htmlAttributes: new { @class = "btn btn-outline-success" })
+                        @Html.ActionLink("Delete", "Delete", "Physicians", new { physicianId = physician.Physicians.Id }, htmlAttributes: new { @class = "btn btn-outline-danger" })
+                    </td>
 
                 </tr>
                 counter++;

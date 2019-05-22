@@ -10,13 +10,7 @@ namespace PatientApplication.ViewModels
     {
         public Patient Patient { get; set; }
 
-        //public Physician Physician { get; set; }
-
-        //public Pharmacy Pharmacy { get; set; }
-
-        public List<Physician> Physicians { get; set; }
-
-        public List<Pharmacy> Pharmacies { get; set; }
+       
 
        /* public string Title
         {
