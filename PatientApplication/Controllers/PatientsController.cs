@@ -40,7 +40,7 @@ namespace PatientApplication.Controllers
             var patient = _context.Patients
                             .Include(p=>p.Medications)
                             .Include(p=>p.Pharmacies)
-                            .Include(p=>p.Physcians)
+                            .Include(p=>p.Physicians)
                             .SingleOrDefault(p => p.Id == patientId);
 
             if (patient == null)

@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace PatientApplication.Models
 {
@@ -34,6 +35,32 @@ namespace PatientApplication.Models
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            //overriding pluralize convention
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+
+            //configure many to many relationship between patient and physician
+            modelBuilder.Entity<Patient>().HasMany<Physician>(phy => phy.Physicians).WithMany(p => p.Patients)
+                .Map(m =>
+                {
+                    m.MapLeftKey("PatientId");  //Patient Id
+                    m.MapRightKey("PhysicianId");  //Physician Id
+                    m.ToTable("PatientPhysicianMap");
+
+                });
+
+            
+                
+
+
+            base.OnModelCreating(modelBuilder);
+        }
+
+        public class ApplicationInitializer: System.Data.Entity.DropCreateDatabaseIfModelChanges<ApplicationDbContext>{
+
         }
     }
 }

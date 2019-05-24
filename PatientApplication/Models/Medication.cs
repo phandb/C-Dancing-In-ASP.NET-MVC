@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -8,6 +9,7 @@ namespace PatientApplication.Models
 {
     public class Medication
     {
+        [Column("MedicationId")]
         public int Id { get; set; }
 
         public int PatientId { get; set; }

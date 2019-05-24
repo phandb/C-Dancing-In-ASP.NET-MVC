@@ -9,7 +9,7 @@ namespace PatientApplication.Migrations
         {
             AddColumn("dbo.Medications", "PatientId", c => c.Int(nullable: false));
             CreateIndex("dbo.Medications", "PatientId");
-            AddForeignKey("dbo.Medications", "PatientId", "dbo.Patients", "Id", cascadeDelete: true);
+            AddForeignKey("dbo.Medications", "PatientId", "dbo.Patients", "PatientId", cascadeDelete: true);
         }
         
         public override void Down()

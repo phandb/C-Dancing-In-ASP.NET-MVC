@@ -223,6 +223,22 @@
     <Compile Include="Migrations\201904230307549_PopulatePhysicians.Designer.cs">
       <DependentUpon>201904230307549_PopulatePhysicians.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905240357553_RenameColumnIdInPatients.cs" />
+    <Compile Include="Migrations\201905240357553_RenameColumnIdInPatients.Designer.cs">
+      <DependentUpon>201905240357553_RenameColumnIdInPatients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905240400113_RenameColumnIdInMedications.cs" />
+    <Compile Include="Migrations\201905240400113_RenameColumnIdInMedications.Designer.cs">
+      <DependentUpon>201905240400113_RenameColumnIdInMedications.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905240401447_RenameColumnIdInPharmacies.cs" />
+    <Compile Include="Migrations\201905240401447_RenameColumnIdInPharmacies.Designer.cs">
+      <DependentUpon>201905240401447_RenameColumnIdInPharmacies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905240403515_RenameColumnIdInPhysicians.cs" />
+    <Compile Include="Migrations\201905240403515_RenameColumnIdInPhysicians.Designer.cs">
+      <DependentUpon>201905240403515_RenameColumnIdInPhysicians.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -410,6 +426,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904230307549_PopulatePhysicians.resx">
       <DependentUpon>201904230307549_PopulatePhysicians.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905240357553_RenameColumnIdInPatients.resx">
+      <DependentUpon>201905240357553_RenameColumnIdInPatients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905240400113_RenameColumnIdInMedications.resx">
+      <DependentUpon>201905240400113_RenameColumnIdInMedications.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905240401447_RenameColumnIdInPharmacies.resx">
+      <DependentUpon>201905240401447_RenameColumnIdInPharmacies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905240403515_RenameColumnIdInPhysicians.resx">
+      <DependentUpon>201905240403515_RenameColumnIdInPhysicians.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

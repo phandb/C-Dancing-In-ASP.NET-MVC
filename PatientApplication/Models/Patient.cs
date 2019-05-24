@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -13,8 +14,10 @@ namespace PatientApplication.Models
         {
             this.Medications = new HashSet<Medication>();
             this.Pharmacies = new HashSet<Pharmacy>();
-            this.Physcians = new HashSet<Physician>();
+            this.Physicians = new HashSet<Physician>();
         }
+
+        [Column("PatientId")]
         public int Id { get; set; }
 
         [Required]
@@ -34,7 +37,7 @@ namespace PatientApplication.Models
         public virtual ICollection<Pharmacy> Pharmacies { get; set; }
 
         //Navigation property for Many-To-Many relationship with Physician
-        public virtual ICollection<Physician> Physcians { get; set; }
+        public virtual ICollection<Physician> Physicians { get; set; }
 
         //Navigation property for One-To-Many relationship with Medication
         public virtual ICollection<Medication> Medications { get; set; }

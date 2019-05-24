@@ -85,7 +85,7 @@ namespace PatientApplication.Controllers
         public ActionResult Save(Medication medication, int patientId)
         {
             
-           // var medication = _context.Medications.SingleOrDefault(m => m.Id == Medication.Id);
+           // var medication = _context.Medications.SingleOrDefault(m => m.MedicationId == Medication.MedicationId);
 
             var thePatient = _context.Patients.SingleOrDefault(p => p.Id == patientId);
             if (thePatient == null)

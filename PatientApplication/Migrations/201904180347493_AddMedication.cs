@@ -17,6 +17,7 @@ namespace PatientApplication.Migrations
                         MedicationDosage = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
+
             
         }
         
