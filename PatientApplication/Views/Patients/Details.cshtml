@@ -180,8 +180,8 @@
                         <td>@Html.DisplayFor(modelItem => item.PhysicianPhone)</td>
                         <td>
                             <!-- display view, update and delete link -->
-                            @Html.ActionLink("Edit", "Edit", "Physicians", new { physicianId = item.Id }, htmlAttributes: new { @class = "btn btn-outline-info" })
-                            @Html.ActionLink("Delete", "Delete", "Physicians", new { physicianId = item.Id }, htmlAttributes: new { @class = "btn btn-outline-danger" })
+                            @*Html.ActionLink("Edit", "Edit", "Physicians", new { physicianId = item.Id }, htmlAttributes: new { @class = "btn btn-outline-info" })*@
+                            @Html.ActionLink("Delete", "DeletePhysicianFromPatient", "Patients", new { patientId = Model.Id, physicianId = item.Id }, htmlAttributes: new { @class = "btn btn-outline-danger" })
 
 
 

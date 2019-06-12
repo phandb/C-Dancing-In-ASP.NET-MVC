@@ -1,0 +1,66 @@
+﻿@model PatientApplication.ViewModels.PhysicianSelectionViewModel
+@{
+    ViewBag.Title = "PhysicianListForSelection";
+}
+
+<h2 class="text-center">Add Physician to Patient</h2>
+
+
+
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.thePatient.Id)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.thePatient.Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.thePatient.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.thePatient.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.thePatient.Gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.thePatient.Gender)
+        </dd>
+
+    </dl>
+</div>
+@*encType = "multipart/form-data", name = "addPhysicianToPatientForm"*@
+@using (Html.BeginForm("SubmitSelectedPhysicianList", "Patients", new { thePatientId = Model.thePatient.Id }, FormMethod.Post))
+{
+    @Html.HiddenFor(model=>model.thePatient.Id)
+    <table class="table table-bordered table-dark mt-5">
+        <thead>
+            <tr class="text-center">
+                <th>Select</th>
+                <th>Physician Name</th>
+                <th>Specialty</th>
+
+                <th>Address</th>
+                
+            </tr>
+        </thead>
+        <tbody class="text-center">
+            @Html.EditorFor(model => model.PhysicianList)
+
+        </tbody>
+       
+    </table>
+    
+    <hr/>
+    <br/>
+    
+    <input type="submit" name="addPhysician" id="submit" value="Submit Selected" class="btn btn-outline-primary"/>
+}

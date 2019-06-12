@@ -20,14 +20,18 @@ namespace PatientApplication.Models
 
         [Required]
         [StringLength(255)]
+        [Display(Name = "Physician Name")]
         public string PhysicianName { get; set; }
 
+        [Display(Name = "Phone")]
         public string PhysicianPhone { get; set; }
 
+        [Display(Name = "Address")]
         public string PhysicianAddress { get; set; }
 
         [Required]
         [StringLength(255)]
+        [Display(Name = "Specialty")]
         public string PhysicianSpecialty { get; set; }
 
         //Navigation Property for many-to-many relationship with Patient

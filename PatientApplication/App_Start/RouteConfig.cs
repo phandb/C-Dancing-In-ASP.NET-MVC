@@ -24,6 +24,12 @@ namespace PatientApplication
                 url: "{Save}/{Medication}/{patientId}",
                 defaults: new { controller="Medications", action="Save", Medication = UrlParameter.Optional, patientId = UrlParameter.Optional }
                 );
+
+            routes.MapRoute(
+                name: "SubmitSelectedPhysicianList",
+                url: "{SubmitSelectedPhysicianList}/{Patient}/{thePatientId}",
+                defaults: new { controller = "Patients", action = "Save", Patient = UrlParameter.Optional, patientId = UrlParameter.Optional }
+                );
         }
     }
 }

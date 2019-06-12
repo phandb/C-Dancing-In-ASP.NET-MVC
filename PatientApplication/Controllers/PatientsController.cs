@@ -132,30 +132,136 @@ namespace PatientApplication.Controllers
 
         }
 
+
+        //Action method to display selection of physicians
         public ActionResult GetPhysicianList(int patientId)
         {
-            List<Physician> physicians = new List<Physician>();
-            physicians = _context.Physicians.ToList();
+            
+            var viewModel = new PhysicianSelectionViewModel();
 
-            Patient thePatient = _context.Patients.Find(patientId);
-
-            if (thePatient == null)
+            foreach (var physician in _context.Physicians)
             {
-                return HttpNotFound();
+                var editorViewModel = new SelectPhysicianEditorViewModel()
+                {
+                    Selected = false,
+                    Name = physician.PhysicianName,
+                    Specialty = physician.PhysicianSpecialty,
+                    Address = physician.PhysicianAddress,
+                    physicianId = physician.Id,
+                    patientId = patientId
+
+
+                };
+                viewModel.PhysicianList.Add(editorViewModel);
+
             }
+            viewModel.thePatient = _context.Patients.Find(patientId);
+          
             
-            var viewModel = new AssignedPhysicianData
-            {
-                Patient = thePatient,
-                Physicians = physicians
-                
-            };
-            
-            return View("PhysicianList", viewModel );
+            return View("PhysicianListForSelection", viewModel );
         }
 
+        /********************************************************************************************/
+        //Action method to handle data, selected physicians, when submit button pressed
+        [HttpPost]
+        public ActionResult SubmitSelectedPhysicianList(int thePatientId, PhysicianSelectionViewModel viewModel)
+        {
+            Patient patient = _context.Patients.Find(thePatientId);
 
+            //Patient patient = viewModel.thePatient;
+            //var thePatientId = viewModel.getPatientId();
+
+            //get the ids from items selected
+            var selectedPhysicianIds = viewModel.getSelectedPhysicianIds();
+
+
+            //Use the ids to retrieve the records for the selected physicians
+            //from database
+
+            var selectedPhysicians = (from x in _context.Physicians where selectedPhysicianIds.Contains(x.Id) select x).ToList();
+
+
+
+            //add each selected physician to the patient
+            foreach (var physician in selectedPhysicians)
+            {
+                    
+                patient.Physicians.Add(physician);
+                //System.Diagnostics.Debug.WriteLine(physician.PhysicianName, physician.PhysicianSpecialty);
+
+               // _context.SaveChanges();
+            }
+
+
+            _context.SaveChanges();
+
+            //If everything is ok, redirect back to patient detail
+            if (ModelState.IsValid)
+            {
+                Session["PhysicianSelectionViewModel"] = viewModel;
+
+               // var patientID = viewModel.Patient.Id;
+                return RedirectToAction("Details", "Patients", new { patientId = thePatientId });
+            }
+
+            //If something goes wrong, keep user at the same page
+           //return View("PhysicianListForSelection", viewModel);
+           return RedirectToAction("Details", "Patients", new { patientId = thePatientId });
+
+        }
+
+        /*****************************/
         
+        public ActionResult DeletePhysicianFromPatient(int patientId, int physicianId)
+        {
+
+            Patient patient = _context.Patients.Find(patientId);
+            Physician physician = _context.Physicians.Find(physicianId);
+
+            patient.Physicians.Remove(physician);
+
+            _context.SaveChanges();
+
+            return RedirectToAction("Details", "Patients", new { patientId = patientId });
+        }
+
+        private IEnumerable<Physician> GetAllPhysicians()
+        {
+            //var allPhysicians = new List<Physician>
+
+            var allPhysicians = _context.Physicians.ToList();
+
+            return allPhysicians;
+
+
+        }
+        
+        //This is the most important method
+        //this method takes a list of strings and returns a list of SelectListItem objects.
+        //These objects are going to be used later in the PhysicianList.Html to reder the DropDownList
+
+        private IEnumerable<SelectListItem> GetSelectListItems(IEnumerable<Physician> elements)
+        {
+            //create an empty list to hold result of the operation
+            var selectList = new List<SelectListItem>();
+
+            //for each string in the elements variable, create a new SelectListItem object
+            //that has both its Value and Text properties set to a particular value
+            //This will result in MVC redering each item as:
+            //   <option value="Physician Name">Physician Name</option>
+
+            foreach (var element in elements)
+            {
+                selectList.Add(new SelectListItem
+                {
+                    Value= element.Id.ToString(),
+                    Text= element.PhysicianName
+                });
+
+            }
+
+            return selectList;
+        }
 
     }
 }

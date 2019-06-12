@@ -250,7 +250,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\AssignedPharmacyData.cs" />
-    <Compile Include="ViewModels\AssignedPhysicianData.cs" />
+    <Compile Include="ViewModels\PhysicianSelectionViewModel.cs" />
+    <Compile Include="ViewModels\SelectPhysicianEditorViewModel.cs" />
     <Compile Include="ViewModels\MedicationViewModel.cs" />
     <Compile Include="ViewModels\PatientViewModel.cs" />
     <Compile Include="ViewModels\PharmacyViewModel.cs" />
@@ -379,7 +380,8 @@
     <Content Include="Views\Medications\Details.cshtml" />
     <Content Include="Views\Medications\Edit.cshtml" />
     <Content Include="Views\Medications\MedicationForm.cshtml" />
-    <Content Include="Views\Patients\PhysicianList.cshtml" />
+    <Content Include="Views\Patients\EditorTemplates\SelectPhysicianEditorViewModel.cshtml" />
+    <Content Include="Views\Patients\PhysicianListForSelection.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

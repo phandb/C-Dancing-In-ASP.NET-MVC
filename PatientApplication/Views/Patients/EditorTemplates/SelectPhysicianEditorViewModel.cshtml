@@ -1,0 +1,40 @@
+﻿
+@model PatientApplication.ViewModels.SelectPhysicianEditorViewModel
+
+
+<tr>
+    <td>
+        @Html.CheckBoxFor(model => model.Selected)
+    </td>
+    <td>
+        @Html.DisplayFor(model => model.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(model => model.Specialty)
+    </td>
+    <td>
+        @Html.DisplayFor(model => model.Address)
+    </td>
+    
+    <td>
+        @Html.HiddenFor(model => model.physicianId, Model.physicianId)
+    </td>
+       
+
+    
+        
+    
+    
+</tr>
+
+
+
+
+
+
+
+    
+
+
+
+
