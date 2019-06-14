@@ -1,0 +1,20 @@
+﻿@model PatientApplication.ViewModels.SelectPharmacyEditorViewModel
+
+<tr>
+    <td>
+        @Html.CheckBoxFor(model => model.Selected)
+    </td>
+    <td>
+        @Html.DisplayFor(model => model.Name)
+    </td>
+    
+    <td>
+        @Html.DisplayFor(model => model.Address)
+    </td>
+
+    <td>
+        @Html.HiddenFor(model => model.pharmacyId, Model.pharmacyId)
+    </td>
+
+</tr>
+

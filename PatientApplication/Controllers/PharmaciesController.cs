@@ -128,5 +128,99 @@ namespace PatientApplication.Controllers
 
             return RedirectToAction("Index", "Pharmacies");
         }
+
+
+        /*****************************************************************************************/
+
+        //Action method to display selection of pharmacies
+        public ActionResult GetPharmacyList(int patientId)
+        {
+
+            var viewModel = new PharmacySelectionViewModel();
+
+            foreach (var pharmacy in _context.Pharmacies)
+            {
+                var editorViewModel = new SelectPharmacyEditorViewModel()
+                {
+                    Selected = false,
+                    Name = pharmacy.PharmacyName,
+                    Address = pharmacy.PharmacyAddress,
+                    pharmacyId = pharmacy.Id,
+                    patientId = patientId
+
+
+                };
+                viewModel.PharmacyList.Add(editorViewModel);
+
+            }
+            viewModel.thePatient = _context.Patients.Find(patientId);
+
+
+            return View("PharmacyListForSelection", viewModel);
+        }
+
+        /********************************************************************************************/
+        //Action method to handle data, selected physicians, when submit button pressed
+        [HttpPost]
+        public ActionResult SubmitSelectedPharmacyList(int thePatientId, PharmacySelectionViewModel viewModel)
+        {
+            Patient patient = _context.Patients.Find(thePatientId);
+
+            //Patient patient = viewModel.thePatient;
+            //var thePatientId = viewModel.getPatientId();
+
+            //get the ids from items selected
+            var selectedPharmacyIds = viewModel.getSelectedPharmacyIds();
+
+
+            //Use the ids to retrieve the records for the selected physicians
+            //from database
+
+            var selectedPharmacies = (from x in _context.Pharmacies where selectedPharmacyIds.Contains(x.Id) select x).ToList();
+
+
+
+            //add each selected physician to the patient
+            foreach (var pharmacy in selectedPharmacies)
+            {
+
+                patient.Pharmacies.Add(pharmacy);
+                //System.Diagnostics.Debug.WriteLine(physician.PhysicianName, physician.PhysicianSpecialty);
+
+                // _context.SaveChanges();
+            }
+
+
+            _context.SaveChanges();
+
+            //If everything is ok, redirect back to patient detail
+            if (ModelState.IsValid)
+            {
+                Session["PharmacySelectionViewModel"] = viewModel;
+
+                // var patientID = viewModel.Patient.Id;
+                return RedirectToAction("Details", "Patients", new { patientId = thePatientId });
+            }
+
+            //If something goes wrong, keep user at the same page
+            //return View("PhysicianListForSelection", viewModel);
+            return RedirectToAction("Details", "Patients", new { patientId = thePatientId });
+
+        }
+
+        /*****************************/
+
+        public ActionResult DeletePharmacyFromPatient(int patientId, int pharmacyId)
+        {
+
+            Patient patient = _context.Patients.Find(patientId);
+            Pharmacy pharmacy = _context.Pharmacies.Find(pharmacyId);
+
+            patient.Pharmacies.Remove(pharmacy);
+
+            _context.SaveChanges();
+
+            return RedirectToAction("Details", "Patients", new { patientId = patientId });
+        }
     }
 }

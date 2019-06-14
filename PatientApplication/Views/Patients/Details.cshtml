@@ -207,7 +207,7 @@
 
 
         <p>
-            @Html.ActionLink("Add Pharmacy To Patient", "AddPharmacyToPatient", "Pharmacies", new { patientId = Model.Id }, htmlAttributes: new { @class = "btn btn-outline-primary mb-3 mt-3" })
+            @Html.ActionLink("Add Pharmacy To Patient", "GetPharmacyList", "Pharmacies", new { patientId = Model.Id }, htmlAttributes: new { @class = "btn btn-outline-primary mb-3 mt-3" })
         </p>
 
         <table class="table table-hover table-bordered table-sm">
@@ -236,8 +236,7 @@
                         <td>@Html.DisplayFor(modelItem => item.PharmacyPhone)</td>
                         <td>
                             <!-- display view, update and delete link -->
-                            @Html.ActionLink("Edit", "Edit", "Pharmacies", new { pharmacyId = item.Id }, htmlAttributes: new { @class = "btn btn-outline-info" })
-                            @Html.ActionLink("Delete", "Delete", "Pharmacies", new { pharmacyId = item.Id }, htmlAttributes: new { @class = "btn btn-outline-danger" })
+                            @Html.ActionLink("Delete", "DeletePharmacyFromPatient", "Pharmacies", new { patientId = Model.Id, pharmacyId = item.Id }, htmlAttributes: new { @class = "btn btn-outline-danger" })
 
 
 
